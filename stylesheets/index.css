@@ -1,5 +1,5 @@
 body {
-	color: #000;
+	color: white;
 	font-family: 'Dosis', sans-serif;
 	background-color: black;
 }
@@ -19,7 +19,7 @@ h2{
 
 h3{
 	position: absolute;
-	font-size: 300px;
+	font-size: 30px;
 	top: 485px;
 	left: 380px;
 	color: #FFFFFF;
