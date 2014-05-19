@@ -9,12 +9,11 @@ img{
 	width: 100%;
 }
 
-h2{
-	position: absolute;
-	font-size: 46px;
-	top: 85px;
-	left: 400px;
+h1{
+	text-align: center;
 	color: #FFFFFF;
+	font-size: 2.75em;
+	margin: 25px;
 }
 
 h3{
@@ -25,15 +24,12 @@ h3{
 	color: #FFFFFF;
 }
 
-nav li {
-	background-color: #373E45;
-	display: inline-block;
-	list-style: none;
-	width: 215px;
-	padding-top: 25px;
-	padding-left: 1px;
-	padding-bottom: 25px;
+ul {
+	background-color: #4472b9;
+	color: #fff;
+	text-align: center;
 }
+
 
 nav li a {
 	font-size: 25px;
