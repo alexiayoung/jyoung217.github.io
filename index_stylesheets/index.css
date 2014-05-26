@@ -1,0 +1,83 @@
+h1 {
+	font-size: 1.5em;
+	margin: 1.563em;
+	text-align: center;
+}
+
+body {
+	font-family: 'Lato',sans-serif;
+	line-height: 1.5;
+}
+
+#menu{
+	width: 100%;
+	h-align: center;
+	padding-bottom: 1.543em;
+	padding-top: 0.543em;
+	background-color: #006666;
+
+}
+
+ul {
+	background-color: #006666;
+	color: #fff;
+	text-align: center;
+}
+
+li {
+	background-color: #006666;
+	display: inline-block;
+	list-style: none;
+	margin-right: 3.750em;
+	margin-left: 1.875em;
+	padding-top: 0.625em;
+	padding-bottom: 0.625em;
+}
+
+a {
+	text-decoration: none;
+	link-color:white;
+	color: white;
+
+}
+
+a:hover{color: #66FF99;}
+
+#Welcome {
+	background-image:url("http://images.fineartamerica.com/images-medium-large-5/chicago-skyline-black-and-white-with-color-reflection-anthony-doudt.jpg");
+	height: 26.563em;
+	width:100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: black;
+}
+
+
+#Welcome_Message{
+	padding-top: 19.063em;
+	margin-right: 20%;
+	margin-left: 20%;
+	background-color: transparent;
+	color: white;
+}
+
+#LinkImages{
+	padding-top: 0.938em;
+	padding-left: 6.250em;
+	padding-bottom: 0.313em;
+}
+
+#blog ul li {
+	display: inline-block;
+	width: 100%
+	padding-top: 312.500em;
+}
+
+
+footer {
+	margin-left: auto;
+    margin-right: auto;
+	background-color: #222;
+	text-align: center;
+	color: #fff;
+}
