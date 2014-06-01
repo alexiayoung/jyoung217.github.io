@@ -1,66 +1,310 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
 
-	<head>
-		<title> J. Young</title>
-		<link rel="stylesheet" type="text/css" href="index_stylesheets/reset.css">
-		<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="index_stylesheets/index.css">
-	</head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<body>
+    <title>J. Young</title>
 
-		<header>
-			<h1>Jonathan Young</h1>
-		</header>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
 
-		<div id="menu">
-		<ul>
-			<li><a href="http://jyoung217.github.io"> Home </a></li>
-			<li> <a href="#Welcome"> Welcome </a></li>
-			<li> <a href="#Blog"> Blog </a></li>
-			<li><a href="#Resume"> Resume </a></li>
-			<li> 
-				<div id="LinkImages" ><a href="http://facebook.com/jyoung217"><img class ="icon" src="http://static.viewbook.com/images/social_icons/facebook_32.png"></a> 
-			<a href="http://twitter.com/jyoung217"><img class="icon" src="http://static.viewbook.com/images/social_icons/twitter_32.png"></a>
-			<a href="https://www.linkedin.com/pub/jonathan-young/13/798/236"><img class="icon" src="http://static.viewbook.com/images/social_icons/linkedin_32.png"></a> 
-		</div></li>
-		
-		</ul>
-		
-		</div>
+    <!-- Add custom CSS here -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
 
-		<div id="Welcome">
-			<div id="Welcome_Message">
-				My name is Jonathan Young and I'm a coder. In training. I'm a recent Northwestern grad who was thrown into Chicago's infamous Englewood neighborhood to teach special education at Harper High School.
+<body>
 
-				I have many stories to tell. Some will warm your heart, others will break it. The most important story, however, is the one I'm currently writing - the journey into the world of code. Join me.
-			</div>
-		</div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+                <a class="navbar-brand" href="index.html">Jonathan Young</a>
+            </div>
 
-		<span id="blog">
-			<ul>		
-				<li><a href="unit1_projects/week1_technical_blog.html">Week 1: Technical Blog<br>My Favorite Websites<a>
-				<li><a href="unit1_projects/week1_cultural_blog.html">Week 1: Cultural Blog<br>Exploring my values<a>
-				<li><a href="unit1_projects/week2_technical_blog.html">Week 2: Technical Blog<br>Display inline vs inline blocks<a>
-				<li><a href="unit1_projects/week3_technical.html">Week 3: Technical Blog<br>Why is JavaScript so popular?<a>
-			</ul>
-			<ul>		
-				<li><a href="unit1_projects/week3_cultural.html">Week 3: Cultural Blog<br>Chefs in the Kitchen<a>	
-				<li><a href="unit1_projects/week4_technical.html">Week 4: Technical Blog<br>Enumerable Methods: #cycle<a>
-				<li><a href="unit1_projects/week4_cultural_blog.html">Week 4: Cultural Blog<br>Dealing with Conflict<a>	
-				<li>
-			</ul>
-		</span>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="about.html">About</a>
+                    </li>
+                    <li><a href="https://github.com/jyoung217">Portfolio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="blog-cultural.html">Cultural Blog</a>
+                            </li>
+                            <li><a href="blog-technical.html">Technical Blog</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://www.facebook.com/jyoung217">Facebook</a>
+                            </li>
+                            <li><a href="http://www.twitter.com/jyoung217">Twitter</a>
+                            </li>
+                            <li><a href="http://www.linkedin.com/pub/jonathan-young/13/798/236">LinkedIn</a>
+                            <li><a href="mailto:jonyoungg@gmail.com">Email Me</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-		
+    <div id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
 
-<footer> 
-	<p> &copy; 2014 Jonathan S. Young </p>
-	<p> All Rights Reserved </p>
-</footer>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('http://wallsev.com/wp-content/uploads/2013/11/ultra_hd_wallpapers_-_lands_p0043.jpg');"></div>
+                <div class="carousel-caption">
+                    <h1>A Coder's Journey</h1>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://fourwallsonly.com/wp-content/uploads/2013/12/chicago-skyline-wallpaper-border.jpg');"></div>
+                <div class="carousel-caption">
+                    <h1> DevBootcamp Chicago </h1>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://www.wallpaperhi.com/thumbnails/detail/20120719/black%20and%20white%20sea%20bridges%20golden%20gate%20bridge%20san%20francisco%201920x1080%20wallpaper_www.wallpaperhi.com_26.jpg');"></div>
+                <div class="carousel-caption">
+                    <h1> A Look to the Future</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </div>
+
+    <div class="section">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <h3><i class="fa fa-check-circle"></i> Northwestern Grad</h3>
+                    <p>Northwestern University, B.S., 2012.</p>
+                    <p>Legal Studies & Communication Studies</p>
+                    <p>GPA: 3.7 / 4.0</p>
+                    <p>Mellon Mays Fellow</p>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h3><i class="fa fa-pencil"></i> Teach for America Survivor</h3>
+                    <p>Corps Member 2012 - 2014</p>
+                    <p><a href="http://www.thisamericanlife.org/radio-archives/episode/487/harper-high-school-part-one">Harper </a> <a href="http://www.thisamericanlife.org/radio-archives/episode/488/harper-high-school-part-two">High School</a></p>
+                    <p>Special Education Math</p>
+                    <p>National-Louis University, M.A.T., 2014</p>
+                    <p>GPA: 3.96/4.00</p>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h3><i class="fa fa-folder-open"></i>  Coder</h3>
+                    <p><a href="https://www.devbootcamp.com">DevBootcamp</a>: Salamander 2014</p>
+                    <p>Phase 1: Ruby, Database, ActiveRecord</p>
+                    <p>Phase 2: MVC, front-end, HTML, CSS, Javascript</p>
+                    <p>Phase 3: Ruby on Rails</p>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.section -->
+
+    <div class="section-colored text-center">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>The two most important days in your life</h2>
+                    <h2> are the day you are born and the day you find out why.</h2>
+                    <p>- Mark Twain -</p>
+                    <hr>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.section-colored -->
+<!-- 
+    <div class="section">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Display Some Work on the Home Page Portfolio</h2>
+                    <hr>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="portfolio-item.html">
+                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="portfolio-item.html">
+                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="portfolio-item.html">
+                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="portfolio-item.html">
+                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="portfolio-item.html">
+                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="portfolio-item.html">
+                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
+                    </a>
+                </div>
+            </div> -->
+            <!-- /.row -->
+
+        <!-- </div> -->
+        <!-- /.container -->
+
+    <!-- </div> -->
+    <!-- /.section -->
+
+    <!-- <div class="section-colored">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h2>Modern Business Features Include:</h2>
+                    <ul>
+                        <li>Bootstrap 3 Framework</li>
+                        <li>Mobile Responsive Design</li>
+                        <li>Predefined File Paths</li>
+                        <li>Working PHP Contact Page</li>
+                        <li>Minimal Custom CSS Styles</li>
+                        <li>Unstyled: Add Your Own Style and Content!</li>
+                        <li>Font-Awesome fonts come pre-installed!</li>
+                        <li>100% <strong>Free</strong> to Use</li>
+                        <li>Open Source: Use for any project, private or commercial!</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <img class="img-responsive" src="http://placehold.it/700x450/ffffff/cccccc">
+                </div>
+            </div>
+            <!-- /.row -->
+
+        <!-- </div>  -->
+        <!-- /.container -->
+
+    <!-- </div>
+    /.section-colored
+
+    <div class="section">
+ --><!-- 
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <img class="img-responsive" src="http://placehold.it/700x450">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h2>Modern Business Features Include:</h2>
+                    <ul>
+                        <li>Bootstrap 3 Framework</li>
+                        <li>Mobile Responsive Design</li>
+                        <li>Predefined File Paths</li>
+                        <li>Working PHP Contact Page</li>
+                        <li>Minimal Custom CSS Styles</li>
+                        <li>Unstyled: Add Your Own Style and Content!</li>
+                        <li>Font-Awesome fonts come pre-installed!</li>
+                        <li>100% <strong>Free</strong> to Use</li>
+                        <li>Open Source: Use for any project, private or commercial!</li>
+                    </ul>
+                </div>
+            </div> -->
+            <!-- /.row
+
+        </div>
+        <!-- /.container
+
+    </div>
+    <!-- /.section -->
+
+    <!-- <div class="container">
+
+        <div class="row well">
+            <div class="col-lg-8 col-md-8">
+                <h4>'Modern Business' is a ready-to-use, Bootstrap 3 updated, multi-purpose HTML theme!</h4>
+                <p>For more templates and more page options that you can integrate into this website template, visit Start Bootstrap!</p>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <a class="btn btn-lg btn-primary pull-right" href="http://startbootstrap.com">See More Templates!</a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+   <!--  </div>  -->
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Jonathan Young 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/modern-business.js"></script>
 
 </body>
 
