@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Technical Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+                <a class="navbar-brand" href="index.html">Jonathan Young</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="about.html">About</a>
+                    </li>
+                    <li><a href="https://github.com/jyoung217">Portfolio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="blog-cultural.html">Cultural Blog</a>
+                            </li>
+                            <li><a href="blog-technical.html">Technical Blog</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://www.facebook.com/jyoung217">Facebook</a>
+                            </li>
+                            <li><a href="http://www.twitter.com/jyoung217">Twitter</a>
+                            </li>
+                            <li><a href="http://www.linkedin.com/pub/jonathan-young/13/798/236">LinkedIn</a>
+                                <li><a href="mailto:jonyoungg@gmail.com">Email Me</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Loops
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Blog Post</li>
+                </ol>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-8">
+
+                <!-- the actual blog post: title/author/date/content -->
+                <hr>
+                <p><i class="fa fa-clock-o"></i> Posted on April 18, 2014 at 5:47 PM by Jonathan Young
+                </p>
+                <hr>
+                <hr>
+                <p>It is the hope that one day my blog will be something that’s actually read by new programmers and coding school students. I have read many blogs by many different developers and I have to say that most of the blogs I’ve read are not idiot proof. I consider myself a highly educated person but when it comes to programming, I will be the first to admit that I’m an idiot. All the resources I’ve come to read and all the things that are supposed to help make me feel a bit like this: </p> <img src="http://img0.joyreactor.com/pics/post/auto-231485.jpeg">
+                <p>Programming shouldn’t feel that way. Explanations shouldn’t feel that way. Though I am young in my programming skills, I’m going to try to write this blog post for you all so that even an idiot like me could understand it. Today, we’re going to talk about loops - specifically common loops that you find in Ruby.
+</p>
+                <p>“Start at the beginning, Jon!”
+</p>
+                <p>I’m so glad you told me to do that, random reader! Let’s start with Ruby. Ruby is a computer language. You and I use English as a language to speak, read, and write. Computers aren’t humans - they don’t use English, but instead computer languages such as: Ruby, Python, Java, C, and our example, Javascript. Why computers don’t speak English is beyond my comprehension, but we have to get on their level.
+</p>
+                <p>Using Ruby (the computer’s language), developers write code (scary stuff on the black screen) to make the computer do things. A computer is a giant infant that needs explicit directions and constant redirection when it gets off task. Sometimes you have to have a program print a bunch of stuff to the screen. You can either write out what you want it to print, or you can write a program that includes a loop. Let’s go over 3 of the more popular ones now:
+</p>
+                <p>While: You use “while” when you give a conditional statement that’s TRUE and you want the computer to do stuff until it’s FALSE. Imagine a mom talking to her kids and is teaching them about cleaning their room. She would give a conditional while statement that says “While your room is not clean, you may not go outside” or “While your room is not clean, you have to clean the bathroom every day.” This is particularly good for counting programs. Here’s an example:</p>
+                <p>beer_total = 99</p>
+    <p>while beer_total > 0</p>
+<p>beer_total -= 1</p>
+<p>puts “There are now #{beer_total} bottles of beer now.”</p>
+<p>end</p>
+
+<p>What does this program say? Let’s go line by line and define what’s going on. It first says we have 99 beers. Then comes the “while” loop. It says “while” the total number of beers is greater than 0, we’re going to implement the code. The code tells the computer to subtract 1 from the total number and save that as the new beer total number. Then its going to print to the screen “There are now X bottles of beer now.” That X number is one less than the previous number! It’ll keep running this until the beer total goes below 0.
+</p>
+<p>For: This loop is a bit different from while/until in that you run a “for” loop a certain number of times. You know the number of times you run the for loop and you don’t know how long you run the “while” or “until” loop. Let’s go back to mom. Mom could tell her child, “For every day that you don’t take out the trash, the trash bag will sit in your room.” Eh. That’s hard to understand and it could take a while for the kid to catch on. Better use an until loop. “Until you take out the trash, the trash bag will sit in your room.” Much better. How would we use a “for” loop then? Mom could say, “For each day this week that you don’t take out the trash, you will have the trash bag sit in your room” or “For every day of chores you do, you will receive one dollar.” You run a “for” loop when the end is in sight.</p>
+
+<p>Until: This loop method is used when you have a conditional statement that’s FALSE and you want the computer to go through a block of code until it’s TRUE. Let’s go back to the mother example. She wants to teach her kids the importance of table manners. She could say, “Until you sit with good posture at the table, you may not eat” or “Until you put your elbows down when you eat, you will not get dessert.” With the beer total example, it would look like this.</p>
+
+<p>beer_count = 99
+beer_count -= 1
+until beer_count < 1
+    beer_count
+end</p>
+
+</p>
+                <!-- <p><strong>Placeholder text by:</strong>
+                </p>
+                <ul>
+                    <li><a href="http://spaceipsum.com/">Space Ipsum</a>
+                    </li>
+                    <li><a href="http://cupcakeipsum.com/">Cupcake Ipsum</a>
+                    </li>
+                    <li><a href="http://tunaipsum.com/">Tuna Ipsum</a>
+                    </li>
+                </ul>
+ -->
+                <hr>
+
+                <!-- the comment box -->
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+
+                <hr>
+
+                <!-- the comments -->
+                <!-- <h3>Start Bootstrap
+                    <small>9:41 PM on August 24, 2013</small>
+                </h3>
+                <p>This has to be the worst blog post I have ever read. It simply makes no sense. You start off by talking about space or something, then you randomly start babbling about cupcakes, and you end off with random fish names.</p>
+
+                <h3>Start Bootstrap
+                    <small>9:47 PM on August 24, 2013</small>
+                </h3>
+                <p>Don't listen to this guy, any blog with the categories 'dinosaurs, spaceships, fried foods, wild animals, alien abductions, business casual, robots, and fireworks' has true potential.</p> -->
+
+            </div>
+
+            <div class="col-lg-4">
+                <!-- <div class="well">
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                    <!-- /input-group -->
+                <!-- </div> -->
+                <!-- /well -->
+                <!-- <div class="well">
+                    <h4>Popular Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#dinosaurs">Dinosaurs</a>
+                                </li>
+                                <li><a href="#spaceships">Spaceships</a>
+                                </li>
+                                <li><a href="#fried-foods">Fried Foods</a>
+                                </li>
+                                <li><a href="#wild-animals">Wild Animals</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#alien-abductions">Alien Abductions</a>
+                                </li>
+                                <li><a href="#business-casual">Business Casual</a>
+                                </li>
+                                <li><a href="#robots">Robots</a>
+                                </li>
+                                <li><a href="#fireworks">Fireworks</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Jonathan Young 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/modern-business.js"></script>
+
+</body>
+
+</html>

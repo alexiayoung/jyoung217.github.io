@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Technical Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+                <a class="navbar-brand" href="index.html">Jonathan Young</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="about.html">About</a>
+                    </li>
+                    <li><a href="https://github.com/jyoung217">Portfolio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="blog-cultural.html">Cultural Blog</a>
+                            </li>
+                            <li><a href="blog-technical.html">Technical Blog</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://www.facebook.com/jyoung217">Facebook</a>
+                            </li>
+                            <li><a href="http://www.twitter.com/jyoung217">Twitter</a>
+                            </li>
+                            <li><a href="http://www.linkedin.com/pub/jonathan-young/13/798/236">LinkedIn</a>
+                                <li><a href="mailto:jonyoungg@gmail.com">Email Me</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Instance Variables 
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Blog Post</li>
+                </ol>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-8">
+
+                <!-- the actual blog post: title/author/date/content -->
+                <hr>
+                <p><i class="fa fa-clock-o"></i> Posted on May 25, 2014 at 8:14 PM by Jonathan Young
+                </p>
+                <hr>
+                <img src="http://frogpants.com/wp-content/uploads/2010/04/instance-page-thing1.jpg" class="img-responsive">
+                <hr>
+                <p>It took me quite a while to understand what instance variables are; I could be completely wrong even now! This week’s work revolved around classes, and I was forced to learn what certain symbols meant within the world of Ruby classes. $? @? @@?</p>
+                <p>???</p>
+                <p>The symbols “$”, “@“, and “@@“ are symbols to differentiate the types of variables you have in your class. $variable_name means that you’re telling Ruby that the variable number after the $ symbol is a global variable and can be accessed literally everywhere in Ruby (global). You can call a $ variable across classes, across methods, everywhere!</p>
+                <p>@variable_name is what’s called an instance method. To call this variable, you need to define it within a class. After you do that, you can call it anywhere within the class you’ve created - just put the @ sign in front of the variable and you can call it literally anywhere within the Ruby class you’ve written (across methods, in puts/print/return statements), anywhere!</p>
+                <p>@@variable_name is for class variables. The best way that I’ve heard this explained is that class variables are like global variables for classes. It’s bad to create a bunch of global variables to use within classes because you might take up variable names you need later. You need to create variables within classes. Instance variables (@) start a certain way and are able to be used across the class whenever it’s called, but it’s kind of the blue collar variable; it’s able to move around a lot and get new things saved as new values. You use instance variables when you want a variable that can be changed a lot. You use class variables when you want something fixed and that can be called anywhere within the class.</p>
+                <!-- <p><strong>Placeholder text by:</strong>
+                </p>
+                <ul>
+                    <li><a href="http://spaceipsum.com/">Space Ipsum</a>
+                    </li>
+                    <li><a href="http://cupcakeipsum.com/">Cupcake Ipsum</a>
+                    </li>
+                    <li><a href="http://tunaipsum.com/">Tuna Ipsum</a>
+                    </li>
+                </ul>
+ -->
+                <hr>
+
+                <!-- the comment box -->
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+
+                <hr>
+
+                <!-- the comments -->
+                <!-- <h3>Start Bootstrap
+                    <small>9:41 PM on August 24, 2013</small>
+                </h3>
+                <p>This has to be the worst blog post I have ever read. It simply makes no sense. You start off by talking about space or something, then you randomly start babbling about cupcakes, and you end off with random fish names.</p>
+
+                <h3>Start Bootstrap
+                    <small>9:47 PM on August 24, 2013</small>
+                </h3>
+                <p>Don't listen to this guy, any blog with the categories 'dinosaurs, spaceships, fried foods, wild animals, alien abductions, business casual, robots, and fireworks' has true potential.</p> -->
+
+            </div>
+
+            <div class="col-lg-4">
+                <!-- <div class="well">
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                    <!-- /input-group -->
+                <!-- </div> -->
+                <!-- /well -->
+                <!-- <div class="well">
+                    <h4>Popular Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#dinosaurs">Dinosaurs</a>
+                                </li>
+                                <li><a href="#spaceships">Spaceships</a>
+                                </li>
+                                <li><a href="#fried-foods">Fried Foods</a>
+                                </li>
+                                <li><a href="#wild-animals">Wild Animals</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#alien-abductions">Alien Abductions</a>
+                                </li>
+                                <li><a href="#business-casual">Business Casual</a>
+                                </li>
+                                <li><a href="#robots">Robots</a>
+                                </li>
+                                <li><a href="#fireworks">Fireworks</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Jonathan Young 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/modern-business.js"></script>
+
+</body>
+
+</html>
