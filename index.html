@@ -1,311 +1,593 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>J. Young</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <!-- Add custom CSS here -->
-    <link href="css/modern-business.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-</head>
-
-<body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-                <a class="navbar-brand" href="index.html">Jonathan Young</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.html">About</a>
-                    </li>
-                    <li><a href="https://github.com/jyoung217">Portfolio</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="blog-cultural.html">Cultural Blog</a>
-                            </li>
-                            <li><a href="blog-technical.html">Technical Blog</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="http://www.facebook.com/jyoung217">Facebook</a>
-                            </li>
-                            <li><a href="http://www.twitter.com/jyoung217">Twitter</a>
-                            </li>
-                            <li><a href="http://www.linkedin.com/pub/jonathan-young/13/798/236">LinkedIn</a>
-                            <li><a href="mailto:jonyoungg@gmail.com">Email Me</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+---
+layout: home
+title: Latest Posts
+description: "The personal blog of Hossain Mohd. Faysal, a doctoral candidate in Electrical Engineering at University of Pennsylvania."
+headline: An Engineer's Diary
+tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsylvania, doha, Qatar]
+---
+{% if site.paginate %}
+	{% for post in paginator.posts %}
+		{% assign ert = post.content | strip_html | number_of_words | divided_by:180 %}
+		{% assign ertremainder = post.content | strip_html | number_of_words | modulo:180 %}
+		{% if ertremainder >= 90 %}
+			{% assign readtime = ert | plus:1 %}
+		{% else %}
+			{% assign readtime = ert %}
+		{% endif %}
+		{% assign modifiedtime = post.modified | date: "%Y%m%d" %}
+		{% assign posttime = post.date | date: "%Y%m%d" %}
+			{% if post.type == 'quote' %}
+			<div class="row">
+	            <article class="post col-md-10 col-md-offset-1">
+	            	<header class="post-header">
+	                    <h2 class="post-title text-center super lighter">
+	                        <a href="{{ site.url }}{{ post.url }}"><i class="icon-quote-left"></i> {{ post.excerpt | strip_html }}</a>
+	                    </h2>
+	                    <p class="light small text-center">
+	                        Share this Quote
+	                    </p>
+	                    <ul class="social-mini text-center">
+	                        <li>
+	                            <a href="https://twitter.com/intent/tweet?text=&quot;{{ post.title }}&quot;%20{{ site.url }}{{ post.url }}%20via%20&#64;{{ site.owner.twitter }}"
+	                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter">
+	                                <i class="icon-twitter"></i>
+	                            </a>
+	                        </li>
+	                        <li>
+	                            <a  href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ post.url }}"
+	                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook">
+	                                <i class="icon-facebook"></i>
+	                            </a>
+	                        </li>
+	                        <li>
+	                            <a href="https://plus.google.com/share?url={{ site.url }}{{ post.url }}"
+	                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus">
+	                                <i class="icon-google-plus"></i>
+	                            </a>
+	                        </li>
+	                    </ul>
+			            <div class="post-body bordered-bottom text-center">
+			                {% if post.description %}
+			                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="{{ post.description }}" class="more-link btn btn-danger btn-large">
+			                    <i class="icon-link"></i> permalink...
+			                </a>
+			                {% else %}
+			                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="Read more about {{ post.title }}" class="more-link btn btn-danger btn-large">
+			                    <i class="icon-link"></i> permalink...
+			                </a>
+			                {% endif %}
+			            </div>
+	                </header>
+	            </article>
+	        </div>
+	        {% endif %}
+	        {% if post.type == 'status' %}
+	        <div class="row">
+	            <article class="post col-md-10 col-md-offset-1">
+	               <header class="post-header">
+	                    <h2 class="post-title text-center super lighter">
+	                        <a href="{{ site.url }}{{ post.url }}" style="color: #c91b26"><i class="icon-retweet"></i> "{{ post.excerpt | strip_html }}"</a>
+	                    </h2>
+	                    <p class="light small text-center">
+	                        Share this Status
+	                    </p>
+	                    <ul class="social-mini text-center">
+	                        <li>
+	                            <a href="https://twitter.com/intent/tweet?text=&quot;{{ post.title }}&quot;%20{{ site.url }}{{ post.url }}%20via%20&#64;{{ site.owner.twitter }}"
+	                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter">
+	                                <i class="icon-twitter"></i>
+	                            </a>
+	                        </li>
+	                        <li>
+	                            <a  href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ post.url }}"
+	                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook">
+	                                <i class="icon-facebook"></i>
+	                            </a>
+	                        </li>
+	                        <li>
+	                            <a href="https://plus.google.com/share?url={{ site.url }}{{ post.url }}"
+	                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus">
+	                                <i class="icon-google-plus"></i>
+	                            </a>
+	                        </li>
+	                    </ul>
+	                    <div class="post-info text-center small">
+	                        Status posted @ <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>{% if post.modified %}{% if modifiedtime != posttime %} and <code>last modified on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ post.modified | date: "%d %b %Y" }}</time></code>{% endif %}{% endif %}
+	                        in <span class="post-tags">{% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ tag | capitalize }} category" rel="tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</span>&nbsp;<span class="post-tags">by {{ site.owner.name }}</span>
+	                        <div class="post-body bordered-bottom"></div>
+	                    </div>
+	                </header>    
+	            </article>
+	        </div>
+	        {% endif %}
+	        {% if post.type == 'video' %}
+	        <div class="row">
+	            <article class="post post col-md-8 col-md-offset-2">
+	               <header class="post-header">
+	                    {% if post.link %}
+	                    <h2 class="post-title text-center super lighter">
+	                        <a href="{{ site.url }}{{ post.url }}" style="color: #fff; background-color: #45ADA8; border-radius: 4px; padding: 10px"><i class="icon-play-circle"></i> {{ post.title }}</a>
+	                    {% else %}
+	                    <h2 class="post-title text-center super lighter bordered-bottom">
+	                        <a href="{{ site.url }}{{ post.url }}"><i class="icon-play-circle"></i> {{ post.title }}</a>
+	                    {% endif %}
+	                    </h2>
+	                    <div class="post-info text-center small">
+	                        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>{% if post.modified %}{% if modifiedtime != posttime %} and <code>last modified on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ post.modified | date: "%d %b %Y" }}</time></code>{% endif %}{% endif %}
+	                        in <span class="post-tags">{% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ tag | capitalize }} category" rel="tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</span>{% if site.readtime %}&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;{% if readtime == 1 %}1 minute read{% endif %}{% if readtime > 1 %}{{ readtime }} minutes read{% endif %}{% if readtime == 0 %}Less than 1 minute read{% endif %}</span>{% endif %}
+	                    </div>
+	                </header>
+	                <div class="post-body bordered-bottom">
+	                {% if post.video %}
+	        		{% assign video_embed = post.video | remove:'https://www.youtube.com/watch?v=' %}
+                    <p><iframe width="940" height="529" src="//www.youtube.com/embed/{{ video_embed }}?theme=light&amp;color=white" frameborder="0" allowfullscreen> </iframe></p>
+                    <p class="lead">{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>
+                    {% else %}
+	                <p class="lead">{{ post.excerpt }}&hellip;</p>
+	                {% endif %}
+	                <div class="text-center">
+	                    {% if post.description %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="{{ post.description }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> see more...
+		                </a>
+		                {% else %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="Read more about {{ post.title }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> see more...
+		                </a>
+		                {% endif %}
+		            </div>
+	                </div>
+	            </article>
+	        </div>
+	        {% endif %}
+	        {% if post.type == 'photo' %}
+	        <div class="row">
+	            <article class="post post col-md-8 col-md-offset-2">
+	               <header class="post-header">
+	               		{% if post.photo %}<figure><a href="{{ site.url }}{{ post.url }}"><img src="{{ site.url }}/images/{{ post.photo }}" alt="{{ post.title }}" itemprop="image"></a></figure>{% else %}<figure><a href="{{ site.url }}{{ post.url }}"><img src="{{ site.url }}/images/{{ post.imagefeature }}" alt="{{ post.title }}" itemprop="image"></a></figure>{% endif %}
+	                    {% if post.link %}
+	                    <h2 class="post-title text-center super lighter">
+	                        <a href="{{ site.url }}{{ post.url }}" style="color: #fff; background-color: #45ADA8; border-radius: 4px; padding: 10px"><i class="icon-picture"></i> {{ post.title }}</a>
+	                    {% else %}
+	                    <h2 class="post-title text-center super lighter bordered-bottom">
+	                        <a href="{{ site.url }}{{ post.url }}"><i class="icon-picture"></i> {{ post.title }}</a>
+	                    {% endif %}
+	                    </h2>
+	                    <div class="post-info text-center small">
+	                        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>{% if post.modified %}{% if modifiedtime != posttime %} and <code>last modified on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ post.modified | date: "%d %b %Y" }}</time></code>{% endif %}{% endif %}
+	                        in <span class="post-tags">{% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ tag | capitalize }} category" rel="tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</span>{% if site.readtime %}&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;{% if readtime == 1 %}1 minute read{% endif %}{% if readtime > 1 %}{{ readtime }} minutes read{% endif %}{% if readtime == 0 %}Less than 1 minute read{% endif %}</span>{% endif %}
+	                    </div>
+	                </header>
+	                <div class="post-body bordered-bottom">
+	                    <p>{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>
+	                    <div class="text-center">
+	                    {% if post.description %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="{{ post.description }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> read more...
+		                </a>
+		                {% else %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="Read more about {{ post.title }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> read more...
+		                </a>
+		                {% endif %}
+		                </div>
+	                </div>
+	            </article>
+	        </div>
+	        {% endif %}
+	        {% if post.type != 'video' and post.type != 'status' and post.type != 'quote' and post.type != 'photo' %}
+	        <div class="row">
+	            <article class="post post col-md-8 col-md-offset-2">
+	               <header class="post-header">
+	               {% if post.featured %}<div class="cursive">this post is featured</div>{% endif %}
+	                    {% if post.link %}
+	                    <h2 class="post-title text-center super lighter">
+	                        <a href="{{ site.url }}{{ post.url }}" style="color: #fff; background-color: #45ADA8; border-radius: 4px; padding: 10px"><i class="icon-link"></i> {{ post.title }}</a>
+	                    {% else %}
+	                    <h2 class="post-title text-center super lighter bordered-bottom">
+	                        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+	                    {% endif %}
+	                    </h2>
+	                    <div class="post-info text-center small">
+	                        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>{% if post.modified %}{% if modifiedtime != posttime %} and <code>last modified on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ post.modified | date: "%d %b %Y" }}</time></code>{% endif %}{% endif %}
+	                        in <span class="post-tags">{% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ tag | capitalize }} category" rel="tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</span>{% if site.readtime %}&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;{% if readtime == 1 %}1 minute read{% endif %}{% if readtime > 1 %}{{ readtime }} minutes read{% endif %}{% if readtime == 0 %}Less than 1 minute read{% endif %}</span>{% endif %}
+	                    </div>
+	                </header>
+	                <div class="post-body bordered-bottom">
+	                {% assign excerptsize = post.excerpt | number_of_words %}
+	                {% if excerptsize <= 100 and excerptsize >= 50 %}<p class = "lead">{{ post.excerpt | strip_html }}&hellip;</p>{% else %}
+	                    <p>{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>{% endif %}
+	                    <div class="text-center">
+	                    {% if post.description %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="{{ post.description }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> read more...
+		                </a>
+		                {% else %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="Read more about {{ post.title }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> read more...
+		                </a>
+		                {% endif %}
+		                </div>
+	                </div>
+	            </article>
+	        </div>
+			{% endif %}
+	{% endfor %}
+{% assign post_count = site.posts | size %}
+{% if post_count == 0 %}
+{% else %}
+{% if paginator.total_pages != 1 %} 
+{% if paginator.total_pages < 7 %}
+        <div class="page-body col-md-12">
+          <ul class="pagination pagination-centered">
+            {% if paginator.total_pages >= 10 %} 
+            {% if paginator.previous_page %}
+                <li>
+                  <a href="{{ site.url }}/">&laquo;&laquo;</a>
+                </li>
+            {% else %}
+              <li class="disabled">
+                <a>&laquo;&laquo;</a>
+              </li>
+            {% endif %}
+            {% endif %}
+            {% if paginator.previous_page %}
+              {% if paginator.previous_page == 1 %}
+                <li>
+                  <a href="{{ site.url }}/">&laquo;</a>
+                </li>
+              {% else %}
+                <li>
+                  <a href="{{ site.url }}/page{{paginator.previous_page}}">&laquo;</a>
+                </li>
+              {% endif %}
+            {% else %}
+              <li class="disabled">
+                <a>&laquo;</a>
+              </li>
+            {% endif %}
+            {% if paginator.page == 1 %}
+              <li class="active">
+                <a>1</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ site.url }}/">1</a>
+              </li>
+            {% endif %}
+            {% for count in (2..paginator.total_pages) %}
+              {% if count == paginator.page %}
+                <li class="active">
+                  <a>{{count}}</a>
+                </li>
+              {% else %}
+                <li>
+                  <a href="{{ site.url }}/page{{count}}">{{count}}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+            {% if paginator.next_page %}
+              <li>
+                <a href="{{ site.url }}/page{{paginator.next_page}}">&raquo;</a>
+              </li>
+            {% else %}
+              <li class="disabled">
+                <a>&raquo;</a>
+              </li>
+            {% endif %}
+            {% if paginator.total_pages >= 10 %} 
+            {% if paginator.next_page %}
+              <li>
+                <a href="{{ site.url }}/page{{paginator.total_pages}}">&raquo;&raquo;</a>
+              </li>
+            {% else %}
+              <li class="disabled">
+                <a>&raquo;&raquo;</a>
+              </li>
+            {% endif %}
+            {% endif %}
+          </ul>
         </div>
-        <!-- /.container -->
-    </nav>
+{% else %}
 
-    <div id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url('http://wallsev.com/wp-content/uploads/2013/11/ultra_hd_wallpapers_-_lands_p0043.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1>A Coder's Journey</h1>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('http://fourwallsonly.com/wp-content/uploads/2013/12/chicago-skyline-wallpaper-border.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1> DevBootcamp Chicago </h1>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('http://www.wallpaperhi.com/thumbnails/detail/20120719/black%20and%20white%20sea%20bridges%20golden%20gate%20bridge%20san%20francisco%201920x1080%20wallpaper_www.wallpaperhi.com_26.jpg');"></div>
-                <div class="carousel-caption">
-                    <h1> A Look to the Future</h1>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </div>
-
-    <div class="section">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <h3><i class="fa fa-check-circle"></i> Northwestern Grad</h3>
-                    <p>Northwestern University, B.S., 2012.</p>
-                    <p>Legal Studies & Communication Studies</p>
-                    <p>GPA: 3.7 / 4.0</p>
-                    <p>Mellon Mays Fellow</p>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <h3><i class="fa fa-pencil"></i> Teach for America Survivor</h3>
-                    <p>Corps Member 2012 - 2014</p>
-                    <p><a href="http://www.thisamericanlife.org/radio-archives/episode/487/harper-high-school-part-one">Harper </a> <a href="http://www.thisamericanlife.org/radio-archives/episode/488/harper-high-school-part-two">High School</a></p>
-                    <p>Special Education Math</p>
-                    <p>National-Louis University, M.A.T., 2014</p>
-                    <p>GPA: 3.9/4.0</p>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <h3><i class="fa fa-folder-open"></i>  Coder</h3>
-                    <p><a href="https://www.devbootcamp.com">DevBootcamp</a>: Salamander 2014</p>
-                    <p>Phase 1: Ruby, Database, ActiveRecord</p>
-                    <p>Phase 2: MVC, front-end, HTML, CSS, Javascript</p>
-                    <p>Phase 3: Ruby on Rails</p>
-                </div>
-            </div>
-            <!-- /.row -->
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.section -->
-
-    <div class="section-colored text-center">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>The two most important days in your life</h2>
-                    <h2> are the day you are born and the day you find out why.</h2>
-                    <p>- Mark Twain -</p>
-                    <hr>
-                </div>
-            </div>
-            <!-- /.row -->
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.section-colored -->
-<!-- 
-    <div class="section">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Display Some Work on the Home Page Portfolio</h2>
-                    <hr>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="portfolio-item.html">
-                        <img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450">
-                    </a>
-                </div>
-            </div> -->
-            <!-- /.row -->
-
-        <!-- </div> -->
-        <!-- /.container -->
-
-    <!-- </div> -->
-    <!-- /.section -->
-
-    <!-- <div class="section-colored">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <h2>Modern Business Features Include:</h2>
-                    <ul>
-                        <li>Bootstrap 3 Framework</li>
-                        <li>Mobile Responsive Design</li>
-                        <li>Predefined File Paths</li>
-                        <li>Working PHP Contact Page</li>
-                        <li>Minimal Custom CSS Styles</li>
-                        <li>Unstyled: Add Your Own Style and Content!</li>
-                        <li>Font-Awesome fonts come pre-installed!</li>
-                        <li>100% <strong>Free</strong> to Use</li>
-                        <li>Open Source: Use for any project, private or commercial!</li>
-                    </ul>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <img class="img-responsive" src="http://placehold.it/700x450/ffffff/cccccc">
-                </div>
-            </div>
-            <!-- /.row -->
-
-        <!-- </div>  -->
-        <!-- /.container -->
-
-    <!-- </div>
-    /.section-colored
-
-    <div class="section">
- --><!-- 
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <img class="img-responsive" src="http://placehold.it/700x450">
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <h2>Modern Business Features Include:</h2>
-                    <ul>
-                        <li>Bootstrap 3 Framework</li>
-                        <li>Mobile Responsive Design</li>
-                        <li>Predefined File Paths</li>
-                        <li>Working PHP Contact Page</li>
-                        <li>Minimal Custom CSS Styles</li>
-                        <li>Unstyled: Add Your Own Style and Content!</li>
-                        <li>Font-Awesome fonts come pre-installed!</li>
-                        <li>100% <strong>Free</strong> to Use</li>
-                        <li>Open Source: Use for any project, private or commercial!</li>
-                    </ul>
-                </div>
-            </div> -->
-            <!-- /.row
-
-        </div>
-        <!-- /.container
-
-    </div>
-    <!-- /.section -->
-
-    <!-- <div class="container">
-
-        <div class="row well">
-            <div class="col-lg-8 col-md-8">
-                <h4>'Modern Business' is a ready-to-use, Bootstrap 3 updated, multi-purpose HTML theme!</h4>
-                <p>For more templates and more page options that you can integrate into this website template, visit Start Bootstrap!</p>
-            </div>
-            <div class="col-lg-4 col-md-4">
-                <a class="btn btn-lg btn-primary pull-right" href="http://startbootstrap.com">See More Templates!</a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-   <!--  </div>  -->
-    <!-- /.container -->
-
-    <div class="container">
-
-        <hr>
-
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Jonathan Young 2014</p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/modern-business.js"></script>
-
-</body>
-
-</html>
+{% assign page_start = paginator.page | minus: 2 %}
+{% assign page_end = paginator.page | plus: 2 %}
+{% if page_end > paginator.total_pages %}
+{% assign page_end = paginator.total_pages %}
+{% assign page_start = paginator.page | minus: 4 %}
+{% endif %}
+{% if page_start < 2 %}
+{% assign page_end = paginator.page | plus: 3 %}
+{% assign page_start = paginator.page | minus: 1 %}
+{% endif %}
+{% if page_start == 0 %}
+{% assign page_end = paginator.page | plus: 4 %}
+{% assign page_start = paginator.page %}
+{% endif %}
+ 
+<div class="page-body col-md-12">
+    <ul class="pagination pagination-centered">
+    {% if paginator.total_pages > 5 %} 
+    {% if paginator.previous_page %}
+        <li>
+          <a href="{{ site.url }}/">&laquo;&laquo;</a>
+        </li>
+    {% else %}
+      <li class="disabled">
+        <a>&laquo;&laquo;</a>
+      </li>
+    {% endif %}
+    {% endif %}
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+        <li>
+          <a href="{{ site.url }}/">&laquo;</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="{{ site.url }}/page{{paginator.previous_page}}">&laquo;</a>
+        </li>
+      {% endif %}
+    {% else %}
+      <li class="disabled">
+        <a>&laquo;</a>
+      </li>
+    {% endif %}
+    {% if page_start == 1 %}
+    {% assign page_end = paginator.page | plus: 4 %}
+    {% assign page_start = 2 %}
+    {% if paginator.page == 1 %}
+      <li class="active">
+        <a>1</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="{{ site.url }}/">1</a>
+      </li>
+    {% endif %}
+    {% endif %}
+    {% for count in (page_start..page_end) %}
+      {% if count == paginator.page %}
+        <li class="active">
+          <a>{{count}}</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="{{ site.url }}/page{{count}}">{{count}}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    {% if paginator.next_page %}
+      <li>
+        <a href="{{ site.url }}/page{{paginator.next_page}}">&raquo;</a>
+      </li>
+    {% else %}
+      <li class="disabled">
+        <a>&raquo;</a>
+      </li>
+    {% endif %}
+    {% if paginator.total_pages > 5 %} 
+    {% if paginator.next_page %}
+      <li>
+        <a href="{{ site.url }}/page{{paginator.total_pages}}">&raquo;&raquo;</a>
+      </li>
+    {% else %}
+      <li class="disabled">
+        <a>&raquo;&raquo;</a>
+      </li>
+    {% endif %}
+    {% endif %}
+  </ul>
+</div>
+{% endif %}
+{% endif %}
+{% endif %}
+{% else %}
+	{% for post in site.posts %}
+		{% assign ert = post.content | strip_html | number_of_words | divided_by:180 %}
+		{% assign ertremainder = post.content | strip_html | number_of_words | modulo:180 %}
+		{% if ertremainder >= 90 %}
+			{% assign readtime = ert | plus:1 %}
+		{% else %}
+			{% assign readtime = ert %}
+		{% endif %}
+		{% assign modifiedtime = post.modified | date: "%Y%m%d" %}
+		{% assign posttime = post.date | date: "%Y%m%d" %}
+			{% if post.type == 'quote' %}
+			<div class="row">
+	            <article class="post col-md-10 col-md-offset-1">
+	            	<header class="post-header">
+	                    <h2 class="post-title text-center super lighter">
+	                        <a href="{{ site.url }}{{ post.url }}"><i class="icon-quote-left"></i> {{ post.excerpt | strip_html }}</a>
+	                    </h2>
+	                    <p class="light small text-center">
+	                        Share this Quote
+	                    </p>
+	                    <ul class="social-mini text-center">
+	                        <li>
+	                            <a href="https://twitter.com/intent/tweet?text=&quot;{{ post.title }}&quot;%20{{ site.url }}{{ post.url }}%20via%20&#64;{{ site.owner.twitter }}"
+	                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter">
+	                                <i class="icon-twitter"></i>
+	                            </a>
+	                        </li>
+	                        <li>
+	                            <a  href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ post.url }}"
+	                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook">
+	                                <i class="icon-facebook"></i>
+	                            </a>
+	                        </li>
+	                        <li>
+	                            <a href="https://plus.google.com/share?url={{ site.url }}{{ post.url }}"
+	                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus">
+	                                <i class="icon-google-plus"></i>
+	                            </a>
+	                        </li>
+	                    </ul>
+			            <div class="post-body bordered-bottom text-center">
+			                {% if post.description %}
+			                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="{{ post.description }}" class="more-link btn btn-danger btn-large">
+			                    <i class="icon-link"></i> permalink...
+			                </a>
+			                {% else %}
+			                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="Read more about {{ post.title }}" class="more-link btn btn-danger btn-large">
+			                    <i class="icon-link"></i> permalink...
+			                </a>
+			                {% endif %}
+			            </div>
+	                </header>
+	            </article>
+	        </div>
+	        {% endif %}
+	        {% if post.type == 'status' %}
+	        <div class="row">
+	            <article class="post col-md-10 col-md-offset-1">
+	               <header class="post-header">
+	                    <h2 class="post-title text-center super lighter">
+	                        <a href="{{ site.url }}{{ post.url }}" style="color: #c91b26"><i class="icon-retweet"></i> "{{ post.excerpt | strip_html }}"</a>
+	                    </h2>
+	                    <p class="light small text-center">
+	                        Share this Status
+	                    </p>
+	                    <ul class="social-mini text-center">
+	                        <li>
+	                            <a href="https://twitter.com/intent/tweet?text=&quot;{{ post.title }}&quot;%20{{ site.url }}{{ post.url }}%20via%20&#64;{{ site.owner.twitter }}"
+	                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter">
+	                                <i class="icon-twitter"></i>
+	                            </a>
+	                        </li>
+	                        <li>
+	                            <a  href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ post.url }}"
+	                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook">
+	                                <i class="icon-facebook"></i>
+	                            </a>
+	                        </li>
+	                        <li>
+	                            <a href="https://plus.google.com/share?url={{ site.url }}{{ post.url }}"
+	                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus">
+	                                <i class="icon-google-plus"></i>
+	                            </a>
+	                        </li>
+	                    </ul>
+	                    <div class="post-info text-center small">
+	                        Status posted @ <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>{% if post.modified %}{% if modifiedtime != posttime %} and <code>last modified on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ post.modified | date: "%d %b %Y" }}</time></code>{% endif %}{% endif %}
+	                        in <span class="post-tags">{% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ tag | capitalize }} category" rel="tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</span>&nbsp;<span class="post-tags">by {{ site.owner.name }}</span>
+	                        <div class="post-body bordered-bottom"></div>
+	                    </div>
+	                </header>    
+	            </article>
+	        </div>
+	        {% endif %}
+	        {% if post.type == 'video' %}
+	        <div class="row">
+	            <article class="post post col-md-8 col-md-offset-2">
+	               <header class="post-header">
+	                    {% if post.link %}
+	                    <h2 class="post-title text-center super lighter">
+	                        <a href="{{ site.url }}{{ post.url }}" style="color: #fff; background-color: #45ADA8; border-radius: 4px; padding: 10px"><i class="icon-play-circle"></i> {{ post.title }}</a>
+	                    {% else %}
+	                    <h2 class="post-title text-center super lighter bordered-bottom">
+	                        <a href="{{ site.url }}{{ post.url }}"><i class="icon-play-circle"></i> {{ post.title }}</a>
+	                    {% endif %}
+	                    </h2>
+	                    <div class="post-info text-center small">
+	                        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>{% if post.modified %}{% if modifiedtime != posttime %} and <code>last modified on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ post.modified | date: "%d %b %Y" }}</time></code>{% endif %}{% endif %}
+	                        in <span class="post-tags">{% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ tag | capitalize }} category" rel="tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</span>{% if site.readtime %}&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;{% if readtime == 1 %}1 minute read{% endif %}{% if readtime > 1 %}{{ readtime }} minutes read{% endif %}{% if readtime == 0 %}Less than 1 minute read{% endif %}</span>{% endif %}
+	                    </div>
+	                </header>
+	                <div class="post-body bordered-bottom">
+	                {% if post.video %}
+	        		{% assign video_embed = post.video | remove:'https://www.youtube.com/watch?v=' %}
+                    <p><iframe width="940" height="529" src="//www.youtube.com/embed/{{ video_embed }}?theme=light&amp;color=white" frameborder="0" allowfullscreen> </iframe></p>
+                    <p class="lead">{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>
+                    {% else %}
+	                <p class="lead">{{ post.excerpt }}&hellip;</p>
+	                {% endif %}
+	                <div class="text-center">
+	                    {% if post.description %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="{{ post.description }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> see more...
+		                </a>
+		                {% else %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="Read more about {{ post.title }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> see more...
+		                </a>
+		                {% endif %}
+		            </div>
+	                </div>
+	            </article>
+	        </div>
+	        {% endif %}
+	        {% if post.type == 'photo' %}
+	        <div class="row">
+	            <article class="post post col-md-8 col-md-offset-2">
+	               <header class="post-header">
+	               		{% if post.photo %}<figure><a href="{{ site.url }}{{ post.url }}"><img src="{{ site.url }}/images/{{ post.photo }}" alt="{{ post.title }}" itemprop="image"></a></figure>{% else %}<figure><a href="{{ site.url }}{{ post.url }}"><img src="{{ site.url }}/images/{{ post.imagefeature }}" alt="{{ post.title }}" itemprop="image"></a></figure>{% endif %}
+	                    {% if post.link %}
+	                    <h2 class="post-title text-center super lighter">
+	                        <a href="{{ site.url }}{{ post.url }}" style="color: #fff; background-color: #45ADA8; border-radius: 4px; padding: 10px"><i class="icon-picture"></i> {{ post.title }}</a>
+	                    {% else %}
+	                    <h2 class="post-title text-center super lighter bordered-bottom">
+	                        <a href="{{ site.url }}{{ post.url }}"><i class="icon-picture"></i> {{ post.title }}</a>
+	                    {% endif %}
+	                    </h2>
+	                    <div class="post-info text-center small">
+	                        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>{% if post.modified %}{% if modifiedtime != posttime %} and <code>last modified on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ post.modified | date: "%d %b %Y" }}</time></code>{% endif %}{% endif %}
+	                        in <span class="post-tags">{% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ tag | capitalize }} category" rel="tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</span>{% if site.readtime %}&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;{% if readtime == 1 %}1 minute read{% endif %}{% if readtime > 1 %}{{ readtime }} minutes read{% endif %}{% if readtime == 0 %}Less than 1 minute read{% endif %}</span>{% endif %}
+	                    </div>
+	                </header>
+	                <div class="post-body bordered-bottom">
+	                    <p>{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>
+	                    <div class="text-center">
+	                    {% if post.description %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="{{ post.description }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> read more...
+		                </a>
+		                {% else %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="Read more about {{ post.title }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> read more...
+		                </a>
+		                {% endif %}
+		                </div>
+	                </div>
+	            </article>
+	        </div>
+	        {% endif %}
+	        {% if post.type != 'video' and post.type != 'status' and post.type != 'quote' and post.type != 'photo' %}
+	        <div class="row">
+	            <article class="post post col-md-8 col-md-offset-2">
+	               <header class="post-header">
+	               {% if post.featured %}<div class="cursive">this post is featured</div>{% endif %}
+	                    {% if post.link %}
+	                    <h2 class="post-title text-center super lighter">
+	                        <a href="{{ site.url }}{{ post.url }}" style="color: #fff; background-color: #45ADA8; border-radius: 4px; padding: 10px"><i class="icon-link"></i> {{ post.title }}</a>
+	                    {% else %}
+	                    <h2 class="post-title text-center super lighter bordered-bottom">
+	                        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+	                    {% endif %}
+	                    </h2>
+	                    <div class="post-info text-center small">
+	                        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>{% if post.modified %}{% if modifiedtime != posttime %} and <code>last modified on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ post.modified | date: "%d %b %Y" }}</time></code>{% endif %}{% endif %}
+	                        in <span class="post-tags">{% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ tag | capitalize }} category" rel="tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</span>{% if site.readtime %}&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;{% if readtime == 1 %}1 minute read{% endif %}{% if readtime > 1 %}{{ readtime }} minutes read{% endif %}{% if readtime == 0 %}Less than 1 minute read{% endif %}</span>{% endif %}
+	                    </div>
+	                </header>
+	                <div class="post-body bordered-bottom">
+	                {% assign excerptsize = post.excerpt | number_of_words %}
+	                {% if excerptsize <= 100 and excerptsize >= 50 %}<p class = "lead">{{ post.excerpt | strip_html }}&hellip;</p>{% else %}
+	                    <p>{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>{% endif %}
+	                    <div class="text-center">
+	                    {% if post.description %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="{{ post.description }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> read more...
+		                </a>
+		                {% else %}
+		                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="Read more about {{ post.title }}" class="more-link btn btn-danger btn-large">
+		                    <i class="icon-link"></i> read more...
+		                </a>
+		                {% endif %}
+		                </div>
+	                </div>
+	            </article>
+	        </div>
+			{% endif %}
+	{% endfor %}  
+{% endif %}
