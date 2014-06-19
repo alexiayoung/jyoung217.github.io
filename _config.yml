@@ -1,9 +1,9 @@
 title:            J. Young
-description:      "A Coder's Journey into the Future"
-logo:             omikron.png
-disqus_shortname: hmfaysal
+description:      "A Coder's Journey"
+logo:             logo.jpg
+disqus_shortname: jyoung217
 # Assign a default image for your site's header and footer
-default_bg:       default_bg1.jpg
+default_bg:       default_bg.jpg
 search:           true
 share:            true
 # Read Time is a calculator tp provide post read-time based on word count. Usage is recommended.
