@@ -15,10 +15,28 @@
 
     <!-- Custom CSS -->
     <link href="css/business-casual.css" rel="stylesheet">
+    <link href="css/countdown.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="js/countdown.min.js"></script>
+
   </head>
 
   <body>
@@ -84,13 +102,31 @@
               </a>
             </div>
             <h2 class="brand-before">
-              <small>Presenting</small>
+              <small>Countdown to the Wedding</small>
             </h2>
-            <h1 class="brand-name">#Jexi</h1>
-            <hr class="tagline-divider">
+            <ul id="example">
+               <li><span class="days">00</span><p class="days_text">Days</p></li>
+                 <li class="seperator">:</li>
+                 <li><span class="hours">00</span><p class="hours_text">Hours</p></li>
+                 <li class="seperator">:</li>
+                 <li><span class="minutes">00</span><p class="minutes_text">Minutes</p></li>
+                 <li class="seperator">:</li>
+                 <li><span class="seconds">00</span><p class="seconds_text">Seconds</p></li>
+             </ul>
+
+             <script type="text/javascript">
+                 $('#example').countdown({
+                     date: '07/09/2016 14:00:00',
+                     offset: 0,
+                     day: 'Day',
+                     days: 'Days'
+                 }, function () {
+                     alert('Done!');
+                 });
+             </script>
             <h2>
-              <small>circa
-                <strong>2009 - Present</strong>
+              <small>
+                <strong>#Jexi2016</strong>
               </small>
             </h2>
           </div>
@@ -139,20 +175,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
-
   </body>
 
 </html>
