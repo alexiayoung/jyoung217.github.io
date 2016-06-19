@@ -15,10 +15,26 @@
 
     <!-- Custom CSS -->
     <link href="css/business-casual.css" rel="stylesheet">
+    <link href="css/countdown.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   </head>
 
   <body>
@@ -41,45 +57,41 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="index.html">Home</a></li>
-            <li><a href="wedding_events.html">Wedding Events</a></li>
-            <li><a href="travel_details.html">Travel Details</a></li>
+            <li><a href="wedding_events.html">Events</a></li>
+            <li><a href="travel_accommodations.html">Travel Details</a></li>
             <li><a href="wedding_party.html">Wedding Party</a></li>
-            <li><a href="rsvp.html">RSVP</a></li>
+            <li><a href="registry.html">Registry</a></li>
           </ul>
         </div>
       </div>
     </nav>
-  <div class="container">
-    <div class="row">
-      <div class="box">
-        <div class="col-lg-12">
-            <h2 class="intro-text text-center">Please RSVP by
-                <strong>June 4, 2016</strong>
+
+    <div class="container">
+      <div class="row">
+        <div class="box">
+          <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center">Wedding
+              <strong>Registry</strong>
             </h2>
-          <hr>
-            <iframe style="display:block;width: 100%;height:56em;border:none;overflow:hidden;" src="http://jexi.anrsvp.com"></iframe>
-          <hr>
-          <hr class="visible-xs">
+            <hr>
+            <hr class="visible-xs">
+            <p>We are so excited and honored to have you at our wedding. Since we have already set up our home and live in a smaller apartment, we have limited space for material items. If you would like to bless us, please consider helping us on our way to our Hawaiian honeymoon and other future life experiences! Checks can be made out to Jonathan Young.</p>
+          </div>
         </div>
       </div>
+
     </div>
-  </div>
-      <!-- /.container -->
 
-      <footer>
-          <div class="container">
-              <div class="row">
-                  <div class="col-lg-12 text-center">
-                      <p>Copyright &copy; Jonathan Young 2016</p>
-                  </div>
-              </div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <p>Copyright &copy; Jonathan Young 2016</p>
           </div>
-      </footer>
+        </div>
+      </div>
+    </footer>
+  </body>
 
-      <!-- jQuery -->
-      <script src="js/jquery.js"></script>
-
-      <!-- Bootstrap Core JavaScript -->
-      <script src="js/bootstrap.min.js"></script>
-
-</body>
+</html>
